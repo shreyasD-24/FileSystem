@@ -60,7 +60,7 @@ app.use(passport.session());
 passport.use(new GoogleStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/user/auth/google/callback"
+    callbackURL: "https://filesystem-kkmm.onrender.com/user/auth/google/callback"
 }, async function(accessToken, refreshToken, profile, cb){
   cb(null, profile);
 }));
