@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-md border-bottom border-tertiary sticky-top bg-info">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">FileSystem</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <%if(currUser){%>
+        <div class="ms-auto">
+          <form class="d-flex" role="get" method="get" action="/file">
+            <input class="form-control me-2 search-inp" type="search" placeholder="Search File by Name" name="fileName">
+            <button class="btn search-btn" type="submit">Search</button>
+          </form>
+        </div>
+        <%}%>
+        <%if(!currUser){%>
+        <div class="navbar-nav ms-auto">
+          <a class="nav-link me-2" href="/user/login">Login with Google</a>
+        </div>
+        <%}%>
+        <% if(currUser) {%>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link me-2" href="/file/upload">Upload File</a>
+                <a class="nav-link me-2" href="/user/logout">Logout</a>
+              </div>
+        <%}%>
+      </div>
+    </div>
+  </nav>

@@ -1,0 +1,37 @@
+<% layout('./layouts/boilerplate') -%>
+
+<body>
+    <%if(currUser){%>
+        <% if(files.length == 0){ %>
+            <div class="row">
+                <h3 class="col-sm-4 offset-sm-4 mt-5">Upload to see Files !</h3>
+            </div>
+        <% } %>
+    <div class="row mt-5">
+        <%for(file of files){%>
+                    <div class="col-lg-3 col-sm-6 mb-4 cards">
+                        <a href="<%=file.url  %>" style="text-decoration: none;">
+                            <div class="card border border-0" style="width: 14.5rem;">
+                                <img src="https://t4.ftcdn.net/jpg/04/65/41/29/360_F_465412924_Ir2XnMp0TYJYtpl1IdNSPYt0UNDVMJv3.jpg" class="card-img-top rounded " alt="...">
+                                <div class="card-img-overlay"></div>
+                                <div class="card-body">
+                                  <p class="card-text"><b><%= file.name %></b>
+                                </p>
+                                </div>
+                            </div>
+                        </a>
+                        <form method="POST" action="/file/<%=file.name%>/<%=file._id%>?_method=DELETE">
+                            <button class="btn btn-dark ms-4">Delete</button>
+                        </form>
+                    </div>
+                                    
+                <%
+        }%>
+    </div>
+    <%}else{%>
+         <div class="row">
+            <h3 class="offset-sm-4 col-sm-8 mt-5">Login to see Files !</h3>
+         </div>
+        
+    <%}%>
+</body>

@@ -1,0 +1,22 @@
+<% layout('./layouts/boilerplate') -%>
+<body>
+    <h1 class="offset-sm-2">Upload Your file</h1><br><br>
+    <form method="POST" action="/file/upload" novalidate class="needs-validation"  enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-md-8 offset-sm-2">
+                <div class="mb-4">
+                    <label for="username" class="form-label">File</label>
+                    <input type="file" class="form-control" id="file"  name="fileUpload" required>
+                    <div class="valid-feedback">File Selected!</div>
+                    <div class="invalid-feedback">File is required</div>
+                  </div>
+                  <div class="mb-4">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter File Name "  name="fileName">
+                  </div>
+                <button class="btn btn-success border-0 mb-4" type="submit">Upload File</button>
+            </div>
+        
+        </div>
+    </form>
+</body>
